@@ -30,6 +30,7 @@ def calculate_indicators(df_5m):
     df_5m['macd_hist_5m'] = compute_macd_hist(df_5m['close'])
     
     # 1時間足のリサンプリングと指標算出
+    # 5分足から1時間足の終値を抽出
     df_1h_close = df_5m['close'].resample('1H').last().ffill()
     rsi_1h = compute_rsi(df_1h_close, period=14)
     
