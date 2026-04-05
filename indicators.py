@@ -31,7 +31,7 @@ def calculate_indicators(df_5m):
     
     # 1時間足のリサンプリングと指標算出
     # 5分足から1時間足の終値を抽出
-    df_1h_close = df_5m['close'].resample('1H').last().ffill()
+    df_1h_close = df_5m['close'].resample('1h').last().ffill()
     rsi_1h = compute_rsi(df_1h_close, period=14)
     
     # 5分足側に1時間足RSIをマッピング
